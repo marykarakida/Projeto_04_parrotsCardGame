@@ -1,3 +1,5 @@
+let cartasClicadas = 0;
+
 pedirCartasNumero();
 
 function pedirCartasNumero() {
@@ -14,7 +16,6 @@ function pedirCartasNumero() {
 }
 
 function randomizarCartas(numero) {
-    // const cartas = ["bobrossparrot","explodyparrot","fiestaparrot","metalparrot","revertitparrot","tripletsparrot","unicornparrot"];
     let cartas = ["bobrossparrot","explodyparrot","fiestaparrot","metalparrot","revertitparrot","tripletsparrot","unicornparrot"];
     cartas.sort(comparador);
     cartas = cartas.slice(0, numero/2);
@@ -29,7 +30,7 @@ function randomizarCartas(numero) {
 
 function inserirCartas(cartas) {
     for (var i = 0; i < cartas.length; i++) {
-        document.querySelector("ul").innerHTML += `<li class="carta"><img class="frente" src="asset/img/front.png" /><img class="verso escondido" src="asset/gif/${cartas[i]}.gif" /></li>`;
+        document.querySelector("ul").innerHTML += `<li class="carta" onclick="clicarCarta(this)"><div class="face face--frente"><img src="asset/img/front.png" /></div><div class="face face--verso"><img src="asset/gif/${cartas[i]}.gif" /></div></li>`;
     }
 }
 
@@ -37,4 +38,6 @@ function comparador() {
     return Math.random() - 0.5;
 }
 
-//da paracriar uma lista que contem o nome dos arquivos gif, e add os itens da lista no ul
+function clicarCarta(carta) {
+    carta.classList.toggle('is-flipped');
+}

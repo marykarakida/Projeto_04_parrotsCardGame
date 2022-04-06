@@ -29,7 +29,7 @@ ul {
     max-width: 900px;
     list-style-type: none;
 }
-li {
+.face {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,12 +39,11 @@ li {
     width: 118px;
     background-color: #A7E9AF;
 }
+
+
 img {
     height: 100px;
     width: 100px;
-}
-.escondido {
-    display: none;
 }
 
 @media (max-width: 600px) {

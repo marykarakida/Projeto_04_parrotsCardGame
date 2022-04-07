@@ -20,6 +20,21 @@ h1 {
     color: #75B79E;
 }
 
+.tempo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #A7E9AF;
+}
+
 ul {
     display: flex;
     justify-content: space-around;
@@ -66,6 +81,13 @@ li {
 img {
     height: 100px;
     width: 100px;
+}
+
+@media (max-width: 1000px) {
+    .tempo {
+        position: initial;
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 600px) {

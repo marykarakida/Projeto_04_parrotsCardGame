@@ -1,9 +1,12 @@
-let cartasClicadas = 0;
+let numero = 0;
+let parCartas = [];
+let cartasViradas = 0;
+let jogadas = 0;
 
 pedirCartasNumero();
 
 function pedirCartasNumero() {
-    let numero = Number(prompt("Olá, jogador(a)! Com quantas cartas você gostaria de jogar? Digite um número par, de 4 a 14"));
+    numero = Number(prompt("Olá, jogador(a)! Com quantas cartas você gostaria de jogar? Digite um número par, de 4 a 14"));
     let numeroValido = false;
     while (numeroValido === false) {
         if (isNaN(numero) === false && numero <= 14 && numero >= 4 && numero % 2 === 0) {
@@ -24,13 +27,14 @@ function randomizarCartas(numero) {
         cartas.push(cartas[i]);
     }
     cartas.sort(comparador);
-
+    
     inserirCartas(cartas);
 }
 
 function inserirCartas(cartas) {
+    document.querySelector("ul").innerHTML = ""; //talvez mover depois para a funcao que for resetar o jogo
     for (var i = 0; i < cartas.length; i++) {
-        document.querySelector("ul").innerHTML += `<li class="carta" onclick="clicarCarta(this)"><div class="face face--frente"><img src="asset/img/front.png" /></div><div class="face face--verso"><img src="asset/gif/${cartas[i]}.gif" /></div></li>`;
+        document.querySelector("ul").innerHTML += `<li><div class="carta" onclick="clicarCarta(this)"><div class="face frente"><img src="asset/img/front.png" /></div><div class="face verso"><img src="asset/gif/${cartas[i]}.gif" /></div></div></li>`;
     }
 }
 
@@ -39,5 +43,26 @@ function comparador() {
 }
 
 function clicarCarta(carta) {
-    carta.classList.toggle('is-flipped');
+    jogadas++;
+    carta.classList.add("virada");
+    parCartas.push(carta);
+    if (parCartas.length === 2) {
+        conferirPar(parCartas);
+        parCartas = [];
+    }
+}
+
+function conferirPar(parCartas) {
+    if (parCartas[0].innerHTML !== parCartas[1].innerHTML) {
+        setTimeout(desvirarCarta, 1000, parCartas);
+        return;
+    } else {
+        cartasViradas += 2;
+    }
+}
+
+function desvirarCarta(parCartas) {
+    for (var i = 0; i < parCartas.length; i++) {
+        parCartas[i].classList.remove("virada");
+    }
 }

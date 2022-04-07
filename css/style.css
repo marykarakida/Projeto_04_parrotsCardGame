@@ -29,7 +29,16 @@ ul {
     max-width: 900px;
     list-style-type: none;
 }
+li {
+    height: 146px;
+    width: 118px;
+}
+.carta {
+    position: relative;
+    cursor: pointer;
+}
 .face {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +47,19 @@ ul {
     height: 146px;
     width: 118px;
     background-color: #A7E9AF;
+    backface-visibility: hidden;
+    transition: all 0.5s linear;
+    transform-style: preserve-3d;
+}
+.verso {
+    transform: rotateY(180deg);
+}
+.virada .verso {
+    transform: rotateY(0deg);
+}
+
+.virada .frente {
+    transform: rotateY(-180deg);
 }
 
 

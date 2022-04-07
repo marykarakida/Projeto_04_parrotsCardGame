@@ -59,10 +59,17 @@ function conferirPar(parCartas) {
     } else {
         cartasViradas += 2;
     }
+    if (cartasViradas === numero) {
+        finalizarJogo();
+    }
 }
 
 function desvirarCarta(parCartas) {
     for (var i = 0; i < parCartas.length; i++) {
         parCartas[i].classList.remove("virada");
     }
+}
+
+function finalizarJogo() {
+    alert(`Você ganhou em ${jogadas} jogadas!`);
 }

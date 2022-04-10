@@ -9,8 +9,36 @@ body {
     align-items: center;
 }
 
+.informacao {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px;
+    width: 100%;
+    max-width: 912px;
+}
+ion-icon {
+    margin-right: 10px;
+    height: 36px;
+    width: 36px;
+}
+
+.tempo {
+    display: flex;
+    align-items: center;
+    border: 4px solid rgb(47, 177, 11);
+    border-radius: 10px;
+    background-color: rgba(219, 245, 212, 0.8);
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    color: #158622;
+}
+
 h1 {
-    margin: 40px 0;
+    margin: 50px 0 40px;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -19,23 +47,6 @@ h1 {
     letter-spacing: -0.004em;
     text-align: center;
     color: #75B79E;
-}
-
-.tempo {
-    z-index: 1;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    right: 20px;
-    padding: 6px;
-    background-color: rgba(158, 250, 135, 0.8);
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    color: #158622;
 }
 
 ul {
@@ -48,11 +59,12 @@ ul {
     list-style-type: none;
 }
 li {
+    position: relative;
     height: 146px;
     width: 118px;
 }
-.carta {
-    position: relative;
+.carta:hover {
+    transform: scale(1.1);
     cursor: pointer;
 }
 .face {
@@ -76,9 +88,11 @@ li {
 .virada .verso {
     transform: rotateY(0deg);
 }
-
 .virada .frente {
     transform: rotateY(-180deg);
+}
+.virada:hover {
+    transform: scale(1);
 }
 
 
@@ -96,8 +110,7 @@ img {
         letter-spacing: -0.004em;
     }
     .tempo {
-        font-size: 20px;
-        right: 0;
+        font-size: 24px;
     }
     ul {
         flex-direction: column;

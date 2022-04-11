@@ -37,7 +37,7 @@ function inserirCartas(cartas) {
             document.querySelector("ul").innerHTML += `<li><div class="carta" onclick="clicarCarta(this)"><div class="face frente"><img src="asset/img/front.png" /></div><div class="face verso"><img src="asset/gif/${carta}.gif" /></div></div></li>`;
         }, i*200, cartas[i])
     }
-    document.querySelector(".informacao").innerHTML = `<div class="tempo"><ion-icon name="timer-outline"></ion-icon><span>0s</span></div>-`;
+    document.querySelector(".informacao").innerHTML = `<div class="tempo"><ion-icon name="timer-outline"></ion-icon><span>0s</span></div>`;
     let intervalo = () => {cronometro = setInterval(medirTempo,1000,Date.now())};
     setTimeout(intervalo,i*200);
 }

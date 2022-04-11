@@ -77,6 +77,7 @@ function conferirPar(parCartas) {
     } 
     cartasViradas = document.querySelectorAll(".virada").length;
     if (cartasViradas === numero) {
+        clearInterval(cronometro);
         setTimeout(finalizarJogo,1500);
     }
 }
@@ -89,7 +90,6 @@ function desvirarCarta(parCartas) {
 }
 
 function finalizarJogo() {
-    clearInterval(cronometro);
     alert(`Você ganhou em ${jogadas} jogadas e ${parseInt(duracao)} segundos!`);
     let novoJogo = prompt('Você quer jogar novamente? \nSe sim, digite "sim"; caso contrário, digite "não"' );
     let respostaValida = false;

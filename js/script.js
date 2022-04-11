@@ -3,7 +3,7 @@ let parCartas = [];
 let cartasViradas = 0;
 let jogadas = 0;
 let comeco, duracao, cronometro;
-let delay = false;
+let delay=false;
 
 pedirCartasNumero();
 
@@ -56,7 +56,10 @@ function mostrarRegras(icone) {
 }
 
 function clicarCarta(carta) {
-    if (!carta.classList.contains("virada") && !delay) {
+    if (document.querySelectorAll("li").length !== numero) {
+        return;
+    }
+    if (!carta.classList.contains("virada") && delay===false) {
         carta.classList.add("virada");
         parCartas.push(carta);
         jogadas++;
@@ -74,7 +77,7 @@ function conferirPar(parCartas) {
     } 
     cartasViradas = document.querySelectorAll(".virada").length;
     if (cartasViradas === numero) {
-        setTimeout(finalizarJogo,1500);
+        finalizarJogo();
     }
 }
 

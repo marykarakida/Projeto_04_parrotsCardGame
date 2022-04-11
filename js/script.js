@@ -77,7 +77,7 @@ function conferirPar(parCartas) {
     } 
     cartasViradas = document.querySelectorAll(".virada").length;
     if (cartasViradas === numero) {
-        finalizarJogo();
+        setTimeout(finalizarJogo,1000);
     }
 }
 

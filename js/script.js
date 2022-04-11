@@ -65,6 +65,10 @@ function clicarCarta(carta) {
         conferirPar(parCartas);
         parCartas = [];
     }
+    cartasViradas = document.querySelectorAll(".virada").length;
+    if (cartasViradas === numero && !delay) {
+        finalizarJogo();
+    }
 }
 
 function conferirPar(parCartas) {
@@ -72,10 +76,6 @@ function conferirPar(parCartas) {
         delay = true;
         setTimeout(desvirarCarta, 1000, parCartas);
     } 
-    cartasViradas = document.querySelectorAll(".virada").length;
-    if (cartasViradas === numero) {
-        finalizarJogo();
-    }
 }
 
 function desvirarCarta(parCartas) {
